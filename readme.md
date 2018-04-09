@@ -24,7 +24,7 @@
     vi) You need a google.developer account setup, so as to access the google translate API.
 
 > ### Steps for setting up the google account
-> ## Type the commands in your console
+> #### Type the commands in your console
 > 1) Create the service account. Replace [NAME] with your desired service account name.
 >> gcloud iam service-accounts create [NAME]
 > 2) Grant permissions to the service account. Replace [PROJECT_ID] with your project ID.
