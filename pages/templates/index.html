@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Media Translator</title>
+    <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
+    <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Candal|Alegreya+Sans|Material+Icons">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/imagehover.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/customize.css' %}">
+</head>
+
+<body>
+  <!--Navigation bar-->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Media Translator</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#about"> About </a></li>
+          <li><a href="#feature"> Features </a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#" data-target="#login" data-toggle="modal"> Sign In</a></li>
+          <li class="btn-trial"><a  href="{% url 'getInput'%}">Get Started </a></li>
+          <!-- {% if user.is_authenticated %}
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hello,{{user}}
+                <span class="caret"></span>
+                <ul class="dropdown-menu">
+                  <li><a href="#"><span><i class="material-icons">history</i></span> History </a></li>
+                  <li><a href="#"><span><i class="material-icons">power_settings_new</i></span> Log Out </a></li>
+                  
+                </ul>
+              </li>
+               
+          {% else %} -->
+          <!-- <li><a href="#" data-target="#login" data-toggle="modal"> Sign In</a></li>
+          <!-- {% endif %} -->
+          <!-- <li class="btn-trial"><a  href="{% url 'getInput'%}">Get Started </a></li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--/ Navigation bar-->
+  <!--Modal box-->
+  <div class="modal fade" id="login" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title text-center form-title">Login</h4>
+        </div>
+        <div class="modal-body">
+          <div class="login-box-body">
+            <p class="login-box-msg">Sign in to start your session</p>
+            <div class="form-group">
+              <form method='post' action='login/' >{% csrf_token %}
+                <div class="form-group has-feedback">
+                  <input class="form-control" placeholder="Email" name="email" type="text" autocomplete="off" />
+                </div>
+                <div class="form-group has-feedback">
+                  <input class="form-control" placeholder="Password" name="pwd" type="password" autocomplete="off" />
+                </div>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="checkbox icheck">
+                      <label>
+                        <input type="checkbox" id="loginrem" > Remember Me
+                      </label>
+                    </div>  
+                    <a href="#"  data-dismiss="modal" data-target="#signup" data-toggle="modal"> 
+                      New User? click here 
+                    </a>
+                  </div>
+                  <div class="col-xs-12">
+                    <input type="submit"  class="btn btn-green btn-block btn-flat" value="Sign In">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="signup" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title text-center form-title">Sign Up</h4>
+          </div>
+          <div class="modal-body">
+            <div class="login-box-body">
+              <p class="login-box-msg">Create Your Account</p>
+              <div class="form-group">
+                <form method='post' action='register/' >{% csrf_token %}
+                  <div class="form-group has-feedback">
+                    <input class="form-control" placeholder="Username" name="uname" type="text" autocomplete="off" />
+                  </div>
+                  <div class="form-group has-feedback">
+                    <input class="form-control" placeholder="Email" name="email" type="text" autocomplete="off" />
+                  </div>
+                  <div class="form-group has-feedback">
+                    <input class="form-control" placeholder="Password" name="pwd" type="password" autocomplete="off" />
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <input type="submit"  class="btn btn-green btn-block btn-flat" value="Sign UP">
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div id="about">    
+  <section id="organisations" class="section-padding" style="margin-top:2rem">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <img class="img-responsive" src="{% static 'img/bg-banner.jpg' %}">
+        </div>
+        <div class="col-md-6">
+          <div style="padding: 35px">
+            <div class="tagline-text">
+              <b> Translate </b> your <b> Audio/Video </b> files
+              <br>
+              into your own
+              <br>
+            <b> Native Languages </b>
+              <br>
+              or
+              <br>
+              <b> Just Record </b> the voice
+              <br>
+              and <b> Translate </b>
+              <br>
+              <a href="{% url 'getInput'%}" class="btn btn-md button-quickstart button-quickstart-text" style="margin-top:2rem"> Quick Start </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+  <!--/ Banner-->
+  <!--Feature-->
+  <section id="feature" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="header-section text-center">
+          <h2>Features</h2>
+          <p> Here's how  <b> Media Translator</b>  helps you to make your life <b> Smarter </b> </p>
+          <hr class="bottom-line">
+        </div>
+        <div class="feature-info">
+          <div class="row">
+            <div class="fea">
+              <div class="col-md-4">
+                <div class="heading pull-right">
+                  <h4> Multiple Indian Languages </h4>
+                  <p> Get the Translated file into more than 10+ Indian Languages .</p>
+                </div>
+                <div class="fea-img pull-left">
+                  <i class="material-icons md-48" style="font-size:48px">g_translate</i>
+                </div>
+              </div>
+            </div>
+            <div class="fea">
+              <div class="col-md-4">
+                <div class="heading pull-right">
+                  <h4> Multiple Uploading Options </h4>
+                  <p> Upload either Audio file or Video file to get your Translated file as well as Transcript file.</p>
+                </div>
+                <div class="fea-img pull-left">
+                  <i class="material-icons md-48" style="font-size:48px">perm_media</i>
+                </div>
+              </div>
+            </div>
+            <div class="fea">
+              <div class="col-md-4">
+                <div class="heading pull-right">
+                  <h4> Voice Recording </h4>
+                  <p> Don't have a media file? Don't worry we have a Voice Recorder Feature for you. Upload the recording</p>
+                </div>
+                <div class="fea-img pull-left">
+                  <i class="material-icons md-48" style="font-size:48px">record_voice_over</i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="fea">
+              <div class="col-md-4">
+                <div class="heading pull-right">
+                  <h4> Noise Cancellation </h4>
+                  <p> Get your Translated files with more accurate prediction, even If your Audio/Video is noisy.</p>
+                </div>
+                <div class="fea-img pull-left">
+                  <i class="material-icons md-48" style="font-size:48px">not_interested</i>
+                </div>
+              </div>
+            </div>
+            <div class="fea">
+              <div class="col-md-4">
+                <div class="heading pull-right">
+                  <h4> Store Files / Download files </h4>
+                  <p> Store your Processed files with all the media files as well as Translate/Transcript files. Also download these stored files.</p>
+                </div>
+                <div class="fea-img pull-left">
+                  <i class="material-icons md-48" style="font-size:48px">cloud_upload</i>
+                </div>
+              </div>
+            </div>
+            <div class="fea">
+              <div class="col-md-4">
+                <div class="heading pull-right">
+                  <h4> Share on Social Network </h4>
+                  <p> Share your files within your social network. Also get to know about the articles shared vai Media Translator </p>
+                </div>
+                <div class="fea-img pull-left">
+                  <i class="material-icons md-48" style="font-size:48px">share</i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ feature-->
+  <!--Organisations-->
+  <div id="how-it-works">
+  <section id="organisations" class="section-padding">
+    <div class="container">
+      <div class="row">
+          <div class="header-section text-center">
+              <h2> How It Works </h2>
+              <p> Get Short Tour of  <b> Media Translator</b> and get started <b> to use it. </b> </p>
+              <hr class="bottom-line">
+            </div>
+            <div class="col-md-offset-3 col-md-6 col-xs-offset-3 col-xs-6  ">
+          <!-- carousel for how it works -->
+          
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+                  <ul>
+                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                      <li data-target="#myCarousel" data-slide-to="1"></li>
+                      <li data-target="#myCarousel" data-slide-to="2"></li>
+                      <li data-target="#myCarousel" data-slide-to="3"></li>
+                      <li data-target="#myCarousel" data-slide-to="4"></li>
+      
+                    </ul>
+              
+            
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                <div class="item active">
+                  <div class="text-cont">
+                    <p class="info-text"> Look at the Feature's to get Idea of What the Media Translator does for You, So that you can act Smartly </p>
+                  </div>
+                  <img src="{% static 'img/1.png' %}" class="img-responsive center-block" alt="Los Angeles" style="width:600px;height:300px" >
+                </div>
+            
+                <div class="item">
+                  <div class="text-cont">
+                      <p class="info-text"> Upload the Video or Audio file from the given choose button option </p>
+                  </div>
+                  <img src="{% static 'img/2.png' %}" class="img-responsive center-block" alt="Chicago" style="width: 500px;height:300px">
+                </div>
+                <div class="item">
+                  <div class="text-cont">
+                      <p class="info-text"> Don't have the file to upload, Then use the recording function to Upload your voice </p>
+                  </div>
+                  <img src="{% static 'img/3.png' %}" alt="Chicago" class="img-responsive center-block" style="width: 500px;height:300px">                  
+                </div>
+                <div class="item">
+                  <div class="text-cont">
+                      <p class="info-text"> Read the Transcript file from here </p>
+                  </div>
+                  <img src="{% static 'img/4.png' %}" alt="Chicago" class="img-responsive center-block" style="width: 500px;height:300px">
+                  
+                </div>
+                <div class="item">
+                    <div class="text-cont">
+                        <p class="info-text"> Read the Translate file from here and also get Translation into other languages as well</p>
+                    </div>
+                  <img src="{% static 'img/5.png' %}" alt="Chicago" class="img-responsive center-block"style="width: 500px;height:300px">
+                  
+                </div>
+                <div class="item">
+                    <div class="text-cont">
+                        <p class="info-text"> You can download the transcript/Translated file, Save this transcript/translate file, Edit the Transcript / Translated File  </p>
+                      </div>
+                    <img src="{% static 'img/6.png' %}" alt="Chicago" class="img-responsive center-block"style="width: 500px;height:300px">
+                    
+                  </div>
+              </div>
+            
+              <!-- Left and right controls -->
+              <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="background-image: none;color:#000;position:absolute;top:30%;left:-27%">
+                <i class="material-icons md-48" style="font-size:48px">keyboard_arrow_left</i>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarousel" data-slide="next" style="background-image: none;color:#000;position:absolute;top:30%;right:-24%">
+                <i class="material-icons" style="font-size:48px">keyboard_arrow_right</i>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+  <!--/ Organisations-->
+  <!--Footer-->
+  <footer id="footer" class="footer">
+    <div class="container text-center">
+        <div id="google_translate_element"></div><script type="text/javascript">
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL, multilanguagePage: true}, 'google_translate_element');
+          }
+          </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+          
+      ©2018 Media Translator. All rights reserved
+      <div class="credits">
+        Designed and Developed by Team Red Velvet</a>
+      </div>
+    </div>
+  </footer>
+  <!--/ Footer-->
+
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+  <script src="{% static 'js/customize2.js' %}"></script>
+
+</body>
+
+</html>

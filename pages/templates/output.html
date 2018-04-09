@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Media Translaator</title>
+  <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
+  <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Candal|Alegreya+Sans|Material+Icons">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/imagehover.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/customize.css' %}">
+  <!-- =======================================================
+    Theme Name: Mentor
+    Theme URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
+    Author: BootstrapMade.com
+    Author URL: https://bootstrapmade.com
+  ======================================================= -->
+  <script>
+      function printPage(id)
+      {
+    
+         var printWin = window.open();
+         printWin.document.write(document.getElementById(id).innerHTML);
+         printWin.document.close();
+         printWin.focus();
+         printWin.print();
+         printWin.close();
+  
+    
+    }
+    
+    </script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Media Translator</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="{% url 'home' %}"> Home </a></li>
+              <li><a href="#" data-target="#how-it-works" data-toggle="modal"> How It Works </a></li>
+              <li><a href="#" data-target="#faq" data-toggle="modal"> FAQ'S </a></li>
+              <li><a href="#" data-target="#login" data-toggle="modal">Sign In</a></li>
+              <!-- {% if user.is_authenticated %}
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hello,{{user}}
+                  <span class="caret"></span>
+                  <ul class="dropdown-menu">
+                    <li><a href="#"><span><i class="material-icons">history</i></span> History </a></li>
+                    <li><a href="#"><span><i class="material-icons">power_settings_new</i></span> Log Out </a></li>
+                    
+                  </ul>
+                </li>
+                 
+              {% else %} -->
+                <!-- <li><a href="#" data-target="#login" data-toggle="modal">Sign In</a></li>
+              {% endif %} -->
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!--/ Navigation bar-->
+      <!--Modal box-->
+      <div class="modal fade" id="login" role="dialog">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title text-center form-title">Login</h4>
+            </div>
+            <div class="modal-body">
+              <div class="login-box-body">
+                <p class="login-box-msg">Sign in to start your session</p>
+                <div class="form-group">
+                  <form method='post' action='login/' >{% csrf_token %}
+                    <div class="form-group has-feedback">
+                      <input class="form-control" placeholder="Email" name="email" type="text" autocomplete="off" />
+                    </div>
+                    <div class="form-group has-feedback">
+                      <input class="form-control" placeholder="Password" name="pwd" type="password" autocomplete="off" />
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <div class="checkbox icheck">
+                          <label>
+                            <input type="checkbox" id="loginrem" > Remember Me
+                          </label>
+                        </div>  
+                        <a href="#"  data-dismiss="modal" data-target="#signup" data-toggle="modal"> 
+                          New User? click here 
+                        </a>
+                      </div>
+                      <div class="col-xs-12">
+                        <input type="submit"  class="btn btn-green btn-block btn-flat" value="Sign In">
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="modal fade" id="signup" role="dialog">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center form-title">Sign Up</h4>
+              </div>
+              <div class="modal-body">
+                <div class="login-box-body">
+                  <p class="login-box-msg">Create Your Account</p>
+                  <div class="form-group">
+                    <form method='post' action='register/' >{% csrf_token %}
+                      <div class="form-group has-feedback">
+                        <input class="form-control" placeholder="Username" name="uname" type="text" autocomplete="off" />
+                      </div>
+                      <div class="form-group has-feedback">
+                        <input class="form-control" placeholder="Email" name="email" type="text" autocomplete="off" />
+                      </div>
+                      <div class="form-group has-feedback">
+                        <input class="form-control" placeholder="Password" name="pwd" type="password" autocomplete="off" />
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <input type="submit"  class="btn btn-green btn-block btn-flat" value="Sign UP">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>  
+        <div class="modal fade" id="how-it-works" role="dialog">
+            <div class="modal-dialog modal-lg">
+          
+              <!-- Modal content no 1-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title text-center form-title">How It Works</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                            <ul>
+                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel" data-slide-to="1"></li>
+                                <li data-target="#myCarousel" data-slide-to="2"></li>
+                                <li data-target="#myCarousel" data-slide-to="3"></li>
+                                <li data-target="#myCarousel" data-slide-to="4"></li>
+                
+                              </ul>
+                        
+                      
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                          <div class="item active">
+                            <div class="text-cont">
+                              <p class="info-text"> Look at the Feature's to get Idea of What the Media Translator does for You, So that you can act Smartly </p>
+                            </div>
+                            <img src="{% static 'img/1.png' %}" class="img-responsive center-block" alt="Los Angeles" style="width:600px;height:300px" >
+                          </div>
+                      
+                          <div class="item">
+                            <div class="text-cont">
+                                <p class="info-text"> Upload the Video or Audio file from the given choose button option </p>
+                            </div>
+                            <img src="{% static 'img/2.png' %}" class="img-responsive center-block" alt="Chicago" style="width: 500px;height:300px">
+                          </div>
+                          <div class="item">
+                            <div class="text-cont">
+                                <p class="info-text"> Don't have the file to upload, Then use the recording function to Upload your voice </p>
+                            </div>
+                            <img src="{% static 'img/3.png' %}" alt="Chicago" class="img-responsive center-block" style="width: 500px;height:300px">                  
+                          </div>
+                          <div class="item">
+                            <div class="text-cont">
+                                <p class="info-text"> Read the Transcript file from here </p>
+                            </div>
+                            <img src="{% static 'img/4.png' %}" alt="Chicago" class="img-responsive center-block" style="width: 500px;height:300px">
+                            
+                          </div>
+                          <div class="item">
+                              <div class="text-cont">
+                                  <p class="info-text"> Read the Translate file from here and also get Translation into other languages as well</p>
+                              </div>
+                            <img src="{% static 'img/5.png' %}" alt="Chicago" class="img-responsive center-block"style="width: 500px;height:300px">
+                            
+                          </div>
+                          <div class="item">
+                              <div class="text-cont">
+                                  <p class="info-text"> You can download the transcript/Translated file, Save this transcript/translate file, Edit the Transcript / Translated File  </p>
+                                </div>
+                              <img src="{% static 'img/6.png' %}" alt="Chicago" class="img-responsive center-block"style="width: 500px;height:300px">
+                              
+                            </div>
+                        </div>
+                      
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="background-image: none;color:#000;position:absolute;top:30%;left:-27%">
+                          <i class="material-icons md-48" style="font-size:48px">keyboard_arrow_left</i>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next" style="background-image: none;color:#000;position:absolute;top:30%;right:-24%">
+                          <i class="material-icons" style="font-size:48px">keyboard_arrow_right</i>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          
+            </div>
+          </div>
+
+  
+        <div class="modal fade" id="faq" role="dialog">
+            <div class="modal-dialog modal-lg">
+          
+              <!-- Modal content no 1-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title text-center form-title">FAQ's</h4>
+                </div>
+                <div class="modal-body padtrbl">
+          
+                  <div class="faq-box-body">
+                    <p class="faq-box-msg"><b>Q. is there any need to create an account for trying an application?</b></p>
+                    <p class="faq-box-msg"><b>Ans:-</b>No.you can try without creating an account but you will not be able to download the transcript.</p>
+                    <p class="faq-box-msg"><b>Q. Do I need internet connection to use Media Translator?</b></p>
+                    <p class="faq-box-msg"><b>Ans:-</b>Yes.</p>
+                    <p class="faq-box-msg"><b>Q.  Is it free to access?</b></p>
+                    <p class="faq-box-msg"><b>Ans:-</b>Yes </p>
+          
+          
+                  </div>
+                </div>
+              </div>
+          
+            </div>
+          </div>
+
+    <section id="section-container" class="section-padding">
+      <div class="container">
+          <div class="row">
+            <div class="header-section text-center">
+              <h2>Your Transcript / Translated files </h2>
+              <p> Observe your processed file output in below block </p>
+              <hr class="bottom-line">
+            </div>
+            <div class="col-md-offset-3 col-md-6 col-sm-12">
+              <div style="position:absolute;top:1%;right:5%" >
+                <div class="dropdown">
+                  <button class="btn button-primary dropdown-toggle btn-lg" type="button" data-toggle="dropdown">
+                  <span><i class="material-icons md-48">reorder</i></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#"><span><i class="material-icons md-36">save </i></span> Save </a></li>
+                    <li><a href="#" onclick="printPage('translate1'),printPage('transcript1');"><span><i class="material-icons md-36">get_app </i></span> Download</a></li>
+                    <li class="disabled"><a href="#"><span><i class="material-icons md-36">create </i></span>Edit</a></li>
+                  </ul>
+                </div>
+              </div> 
+              {% block content %}
+                <div class="service-box">
+                  <!-- other content will be here -->
+                  <ul class="nav nav-tabs" >
+                    <li class="active">
+                      <a data-toggle="tab" href="#transcript"> Transcript </a>
+                    </li>
+                    <li>
+                      <a data-toggle="tab" href="#translate" > Translate </a>
+                    </li>
+                  </ul>
+                    
+                  <div class="tab-content">
+                    <div id="transcript" class="tab-pane fade in active">
+                      <div class="row" style="margin-bottom:2rem">
+                        <h4> Current Language : {{transcriptLang}}</h4>
+                        <textarea class="form-control" rows="10" readonly style="resize:none" id='transcript1'>{{transcript}}</textarea>
+                      </div>
+                    </div>
+                    <div id="translate" class="tab-pane fade">
+                        <form method="post" action="{%url 'getOutput'%}">{% csrf_token %}
+                            <div class="row" style="margin-bottom:2rem">
+                              <h4> Current Language : {{translateLang}}</h4>
+                              <h4> Accuracy : {{accuracy}}</h4>
+                              <textarea class="form-control" rows="10" readonly style="resize:none" id="translate1" name="gettranslate">{{translate}}</textarea>
+                            </div>
+                            <div class="row">
+                              <div class="alert alert-success alert-dismissible">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                Want Translation in any other <strong> language </strong>  
+                                for the same uploaded file.Then just Select the Language and click on submit to get it.
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="form-group">
+                                <label  for="translationLang" class="col-md-4"> Select Language : </label>
+                                    <div class="col-md-4">
+                                      <select class="form-control" id="translationLang" name="outputLang"> 
+                                        <option value="en"> English </option>
+                                        <option value="hi"> Hindi </option>
+                                        <option value="mr"> Marathi </option>
+                                        <option value="bn"> Bengali </option>
+                                        <option value="ta"> Tamil </option>
+                                        <option value="gu"> Gujarati </option>
+                                        <option value="te"> Telugu </option>
+                                        <option value="kn"> Kannada </option>
+                                        <option value="sd"> Sindhi	</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                <div class="form-group">
+                                  <div class="col-md-3  col-xs-3">
+                                    <input type="submit" class="btn btn-md button-primary" value="submit">
+                                  </div>
+                                </div>
+                              </div>
+                            </form>
+                    </div>
+                  </div>                 
+                </div>
+              {% endblock %}
+            </div>
+          </div>
+      </div>
+    </section>
+
+
+
+
+
+  <footer id="footer" class="footer">
+    <div class="container text-center">
+        <div id="google_translate_element"></div><script type="text/javascript">
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL, multilanguagePage: true}, 'google_translate_element');
+          }
+          </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+          
+      ©2018 Media Translator. All rights reserved
+      <div class="credits">
+        Designed and Developed by Team Red Velvet</a>
+      </div>
+    </div>
+  </footer>
+      <!--/ Footer-->
+
+
+  <!-- <script>
+  function changeToEdit(){
+    document.getElementById('')
+  }
+  
+  </script>     -->
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+</html>

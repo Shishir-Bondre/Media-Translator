@@ -1,0 +1,57 @@
+
+    <h1> Upload the input file </h1>
+    <!-- <form method="post" enctype="multipart/form-data" >
+          <input type="file" name="audioFile" multiple>
+          <button>Submit</button>
+    </form> -->
+
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+      <label>
+        Input Language
+      </label>
+      <select  name="inputLang">
+        <option value="EN"> English </option>
+        <option value="HI"> Hindi </option>
+        <option value="mr"> Marathi </option>
+        <option value="bn"> Bengali </option>
+        <option value="ta"> Tamil </option>
+        <option value="bn"> Bengali </option>
+        <option value="te"> Telugu </option>
+        <option value="gu"> Gujarati </option>
+        <option value="kn"> Kannada </option>
+        <option value="sd"> Sindhi	</option>
+        <option value="MX"> Mixed Audio </option>
+      </select>
+      <label>
+        Input File
+      </label>
+      <input name="audioFile" type="file" accept="audio/mp3,audio/wav,audio/ogg" />
+        <span><i class="material-icons">file_upload</i></span>
+      
+      <br>
+      
+      <label>
+        Output Language
+      </label>
+      <select  name="outputLang">
+        <option value="en"> English </option>
+        <option value="hi"> Hindi </option>
+        <option value="mr"> Marathi </option>
+        <option value="bn"> Bengali </option>
+        <option value="ta"> Tamil </option>
+        <option value="gu"> Gujarati </option>
+        <option value="te"> Telugu </option>
+        <option value="kn"> Kannada </option>
+        <option value="sd"> Sindhi	</option>
+        
+      </select>
+      <input type="submit" value="Submit" />
+  </form>
+
+
+
+  {% block content %}
+
+  <p>{{user}}</p>
+  
+  {% endblock %}
