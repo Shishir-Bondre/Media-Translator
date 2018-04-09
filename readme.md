@@ -24,17 +24,17 @@
     vi) You need a google.developer account setup, so as to access the google translate API.
 
 > ### Steps for setting up the google account
-    > ## Type the commands in your console
-    > 1) Create the service account. Replace [NAME] with your desired service account name.
-    >> gcloud iam service-accounts create [NAME]
-    > 2) Grant permissions to the service account. Replace [PROJECT_ID] with your project ID.
-    >> gcloud projects add-iam-policy-binding [PROJECT_ID] --member "serviceAccount:[NAME]@[PROJECT_ID].iam.gserviceaccount.com" --role "roles/owner"
-    > 3) Generate the key file. Replace [FILE_NAME] with a name for the key file.
-    >> gcloud iam service-accounts keys create [FILE_NAME].json --iam-account [NAME]@[PROJECT_ID].iam.gserviceaccount.com
-    > 4) Replace [PATH] with the file path of the JSON file that contains your service account key.
-    >> export GOOGLE_APPLICATION_CREDENTIALS="[PATH]"
-    > 5) example
-    >> export GOOGLE_APPLICATION_CREDENTIALS="/home/user/Downloads/service-account-file.json"
+> ## Type the commands in your console
+> 1) Create the service account. Replace [NAME] with your desired service account name.
+>> gcloud iam service-accounts create [NAME]
+> 2) Grant permissions to the service account. Replace [PROJECT_ID] with your project ID.
+>> gcloud projects add-iam-policy-binding [PROJECT_ID] --member "serviceAccount:[NAME]@[PROJECT_ID].iam.gserviceaccount.com" --role "roles/owner"
+> 3) Generate the key file. Replace [FILE_NAME] with a name for the key file.
+>> gcloud iam service-accounts keys create [FILE_NAME].json --iam-account [NAME]@[PROJECT_ID].iam.gserviceaccount.com
+> 4) Replace [PATH] with the file path of the JSON file that contains your service account key.
+>> export GOOGLE_APPLICATION_CREDENTIALS="[PATH]"
+> 5) example
+>> export GOOGLE_APPLICATION_CREDENTIALS="/home/user/Downloads/service-account-file.json"
 
 
 ### 2) Technology Stack
